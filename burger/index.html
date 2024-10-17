@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Burgeria</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=DynaPuff:wght@500&family=Sigmar&family=Work+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/96d8b59060.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" type="image/x-icon">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    section {
+
+      align-items: center;
+      justify-content: center;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      position: fixed;
+      align-items: center;
+      background-color: rgba(68, 68, 68, 0.1);
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      padding: 10px 20px;
+      transition: top 0.3s;
+    }
+
+    .menu_icon {
+      cursor: pointer;
+      display: none; 
+      margin-left: auto; 
+      display: none;
+    }
+
+    .bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #9EC396;
+      margin: 5px 0;
+      transition: 0.4s;
+    }
+
+    .menu_links {
+      display: flex;
+      align-content: center;
+      margin-left: auto; 
+
+    }
+
+    .menu_links a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-family: 'Prompt', sans-serif;
+      padding: 10px 15px;
+      transition: background-color 0.7s ease;
+      font-size: 1.3em;
+
+
+    }
+
+    .menu_links a:hover {
+      color: #328A6E;
+      background-color: rgba(85, 85, 85, 0.7);
+
+    }
+
+
+
+    #section1 {
+      background: url('https://images.unsplash.com/photo-1561758033-d89a9ad46330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80') center/cover no-repeat;
+      padding: 200px 4px;
+      text-align: left;
+      height: 100%;
+      color: #fff;
+      position: relative;
+      align-items: left;
+      justify-content: left;
+      text-align: left;
+    }
+
+    #section1.top-section {
+      margin-left: 20px;
+      opacity: 0;
+      transition: opacity 1s ease, transform 1s ease; 
+    }
+
+    #section1.top-section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #section1::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+      transition: opacity 1s ease;
+      pointer-events: none;
+    }
+
+    #section1:hover::before {
+      opacity: 0.5;
+    }
+
+    .top_section h1,
+    .top_section p {
+      font-family: 'Caprasimo', serif;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+      color: #FFF;
+      transform: translateY(50px);
+      transition: transform 1s ease;
+    }
+
+    .top_section.show h1,
+    .top_section.show p {
+      transform: translateY(0);
+    }
+
+    .top_section h1 {
+      font-size: 4.0em;
+      margin-bottom: 5px;
+      margin-left: 20px;
+      font-weight: bold;
+      margin-top: 4px;
+    }
+
+    .top_section p {
+      font-size: 1.3em;
+      margin-left: 40px;
+      margin-bottom: 20px;
+    }
+
+    .buy_now_btn {
+      display: inline-block;
+      font-family: 'Caprasimo', serif;
+      padding: 10px 20px;
+      margin-left: 150px;
+      margin-top: 60px;
+      font-size: 1.2em;
+      text-decoration: none;
+      color: #fff;
+      background-color: #FF5733;
+      border-radius: 5px;
+      transition: background-color 0.7s ease; 
+    }
+
+    .buy_now_btn:hover {
+      background-color: #E64A19;
+    }
+
+    #top {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease; 
+    }
+
+    #top.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #section2 {
+      padding: 30px;
+      text-align: center;
+      justify-content: center;
+      background-color: #FDFDD2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden ;      
+    }
+
+
+    .Seasonal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px; 
+      flex-direction: row;
+    }
+
+    .horizontal3 {
+      width: 350px;
+      height: 5px;
+      background-color: #90373F;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      z-index:  2;
+
+    }
+
+    #section2 h1 {
+
+     font-family: 'Caprasimo', serif;
+     font-size: 3.5em;
+     margin-top: 20px;
+     margin-bottom: 10px;
+     text-align: center;
+     color: #3D3D3B;
+     margin-left: 15px;
+     margin-right: 15px;
+   }
+
+   #section2 h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    color: #3F3F3F;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+  }
+
+  .container {
+    max-height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px; 
+  }
+
+  .container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+  }
+
+  .container li {
+    text-align: center;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s, 
+    box-shadow 0.5s;
+    border-radius: 10px;
+  }
+
+  .container li.two::before,
+  .container li.four::before,
+  .container li.six::before {
+    background-color: rgba(68, 68, 68, 0.3);
+    border-radius: 10px;
+    z-index: 1;
+  }
+
+  .container li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: background-color 0.5s;
+    z-index: -1
+  }
+
+  .container li p {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    color: #212121;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.3em;
+    opacity: 0;
+    transition: opacity 0.5s;
+    text-align: center;
+
+  }
+
+  .container li h6 {
+    position: absolute;
+    top: 28%;
+    left: 38%;
+    color:  #8A000D;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.3em;
+    opacity: 0;
+    transition: opacity 0.5s;
+    text-align: center;
+
+  }
+
+  .container li:hover p {
+    opacity: 1;
+  }
+
+  .container li:hover h6 {
+    opacity: 1;
+  }
+
+
+
+  .container li img {
+   opacity: 0;
+   transition: opacity 4s ease, transform 4s ease;
+ }
+
+ .container li.in_view img {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+
+.container li.in_view:hover img {
+
+  box-shadow: 0 0 15px rgba(225, 225, 225, 0.4);
+  opacity: 0.5;
+
+}
+
+.section3 {
+  position: relative;
+  overflow: hidden ; 
+
+}
+
+.statement {
+  padding: 5px;
+  margin: 40px;
+  text-align: center;
+  justify-content: center;
+}
+
+.statement h3 {
+  font-family: 'Sigmar', sans-serif;
+  font-size: 3em;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #006B5E;
+}      
+
+.statement #horizontal {
+  width: 20%;
+  height: 5px;
+  background-color: #90373F;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1px;
+  margin-bottom: 10px;
+}
+
+.statement p {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1em;
+  color: #3D3D3B;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  margin-top: 50px;
+}
+
+
+.options {
+  text-align: center;
+  padding: 30px;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+  margin-top: 90px;
+  justify-content: center;
+}
+
+.options div {
+  text-align: center;
+  background-color:  #f0f0f0; 
+  padding: 1px;
+  margin-right:20px;
+}
+
+.options h3 {
+ font-family: 'Prompt', sans-serif;
+ font-weight: bold;
+ font-size: 25px;
+ color: #3F3F3F;
+ margin-bottom: 10px;
+ margin-top: 40px;
+}
+
+.options #horizontal2 {
+  width: 75px;
+  height: 2px;
+  background-color: #F4D03F;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6px;
+  margin-bottom: 10px;           
+}     
+
+.options p {
+ font-family: 'Work Sans', sans-serif;
+ font-size: 0.9em;
+ color: #3D3D3B;
+} 
+
+
+
+#section4 {
+  padding: 20px; 
+  margin-top: 10px;
+  align-content: center;
+}
+
+
+
+.food {
+  display: flex; 
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin: 20px;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.new h2 {
+
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-family: 'Caprasimo', serif;
+  font-size: 4em;
+  margin-top: 20px;
+  text-align: center;
+  color: #006B5E;
+
+}
+
+.new p {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1em;
+  color: #3D3D3B;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  margin-top: 10px;
+  text-align: center;
+
+}
+
+
+.lists {
+  text-align: center;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+  background: #f0f0f0;
+}
+
+.lists:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  background: #F4D03F;
+  color: #fff;
+}
+
+.lists h2 {
+ font-family: 'Prompt', sans-serif;
+ font-size: 2em;
+ margin-bottom: 20px;
+ color: #F4D03F;
+
+}
+.lists:hover h2 {
+  color: #fff;
+}
+
+
+.lists h6 {
+  color: #CF3501;
+  font-size: 1.5em;
+}
+.lists p {
+  ffont-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+
+.lists img {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+  max-width: 100%;
+  height: auto;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.lists:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+
+.about_section,
+.contact_section {
+  text-align: center;
+  padding: 5px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  background: #E6E6E6;
+  margin: 20px;
+  color: #333; 
+  overflow: hidden;
+}
+
+
+.about_section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5em;
+  margin-bottom: 40px;
+  color: #90373F;
+  text-align: center;
+}
+
+
+.contact_section h2 {
+ font-family: 'Montserrat', sans-serif;
+ font-size: 3.5em;
+ margin-bottom: 40px;
+ color: #90373F;
+ text-align: center;
+}
+
+
+
+.about_section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: left;
+}
+
+.about_content {
+  width: 50%;
+  padding: 20px;
+}
+
+.about_image {
+  width: 500px; 
+  overflow: hidden;
+
+}
+
+.about_image img {
+  width: 70%;
+  height: auto;
+  border-radius: 5%;
+  margin-left: 30%
+}
+
+
+.about_section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5em;
+  margin-bottom: 40px;
+  color: #90373F;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInLeft 1s ease-out forwards; 
+}
+
+.about_content {
+  width: 50%;
+  padding: 20px;
+  opacity: 0; 
+  animation: fadeInLeft 1s ease-out 0.5s forwards;
+}
+
+
+
+.about_content h2,
+.about_content p {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.about_section.show .about_content h2,
+.about_section.show .about_content p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.about_image {
+  width: 500px;
+  overflow: hidden;
+}
+
+.about_image img {
+  width: 70%;
+  height: auto;
+  border-radius: 5%;
+  margin-left: 30%;
+  opacity: 0; 
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.about_image.in_view img {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about_section.show .about_image.in_view img {
+  transition-delay: 0.5s; 
+}
+
+
+.contact_section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  padding: 50px 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  background: #E6E6E6;
+  margin-right: 20px;
+  color: #333;
+  overflow: hidden;
+}
+
+.contact_info {
+  margin-top: 20px;
+  color: #555;
+}
+
+.contact_info a {
+  color: #00735D;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact_info a:hover {
+  text-decoration: underline;
+}
+
+.contact_form {
+  margin-top: 30px;
+  margin-right: 30px;
+}
+
+.contact_form h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #90373F;
+}
+
+.contact_form form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact_form label {
+  display: block;
+  margin-bottom: 8px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1em;
+  color: #3D3D3B;
+}
+
+.contact_form input,
+.contact_form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.contact_form textarea {
+  resize: vertical;
+}
+
+.contact_form button {
+  background-color: #00735D;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+.contact_form button:hover {
+  background-color: #005743;    
+}
+
+.section6{
+  background-color: #FDFDD2;
+  padding: 20px;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin: 1%;
+}
+
+.section6 h1{
+  font-family: 'Sigmar', sans-serif;
+  font-size: 2.6em;
+  text-decoration: none;
+  margin-right: 15px;
+  color: #006B5E;
+  margin-bottom:5px;
+}
+
+.section6 .branch_horizontal {
+  width: 18%;
+  height: 5px;
+  background-color: #F4D03F;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1px;
+  margin-bottom: 20px;
+}
+.container {
+  text-align: center;
+}
+
+.tab_link{
+ font-family: 'Sigmar', sans-serif;
+ font-size: 1.3em;
+ text-decoration: none;
+ margin-right: 15px;
+ margin-top: 15px;
+ color: #3D3D3B;
+ text-align: center;
+}
+
+
+.map_container {
+  display: none;
+  padding: 20px;
+  margin: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.map_container h2{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.7em;
+  text-decoration: none;
+  color: #009D83;
+  margin-right: 10px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  font-weight: bold;
+
+}
+
+.map_container h3{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3em;
+  color: #3E4140;
+}
+
+.map_container  p{
+  color: #3E4140;
+  font-weight: bold;
+}
+
+.content_info {
+  width: 65%;
+}
+
+.content2,
+.content3,
+.content4 {
+  display: none; 
+}
+
+.tab_link {
+  font-family: 'Sigmar', sans-serif;
+  font-size: 1.3em;
+  text-decoration: none;
+  margin-right: 15px;
+  color: #3D3D3B;
+  text-align: center;
+  border: 2px solid transparent;
+  padding: 5px;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.tab_link:hover,
+.selected_tab_link {
+  border-color: #3E4140;
+
+
+}
+
+@media only screen and (max-width: 1000px) {
+  .lists h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+  .content_info{
+    text-align: center;
+  }
+
+}
+
+
+@media only screen and (max-width: 768px) {
+  .map_container {
+    flex-direction: column;
+  }
+
+  .content_info {
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu_icon {
+    display: block; 
+  }
+
+  .menu_links {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: rgba(68, 68, 68, 0.9);
+  }
+
+  .menu_links a {
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+
+  #section1{
+    height: 100vh;
+    padding: 0;
+    align-content: center;
+  }
+
+  #section1 h1 {
+    font-size: 2em;
+    margin-left: 10px; 
+    padding-top: 50%;
+    padding-bottom: 10%;
+  }
+
+  #section1 p {
+    font-size: 1em;
+    margin-left: 10px; 
+
+  }
+
+  .buy_now_btn {
+    margin-left: 35%;
+    margin-top: 30%;
+  }
+
+  #section2{
+    overflow: hidden;
+  }
+
+  #section2 h1 {
+    font-size: 3em;
+
+  }
+
+  .container li {
+    height: auto;
+  }
+
+  
+  .container li h6 {
+    font-size: 0.8em;
+    top: 40%;
+  }
+
+
+  .container li p{
+    font-size: 0.8em;
+}
+
+  .options h3 {
+    font-size: 18px;
+    margin-bottom: 5px; 
+  }
+
+  .options #horizontal2 {
+    width: 50px; 
+  }
+
+  .options p {
+    font-size: 0.9em;
+  }
+
+  .new h2 {
+    font-size: 2em;
+  }
+
+  .new p {
+    font-size: 1em;
+  }
+
+  .lists h2 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+  }
+
+  .lists h6 {
+    font-size: 1.2em;
+  }
+
+  .lists p {
+    font-size: 0.9em;
+    margin-bottom: 15px;
+  }
+
+  .menu {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+  }
+
+  .about_section h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+  }
+
+  .about_content p {
+    font-size: 0.8em;
+  }
+
+  .contact_section h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+
+  .contact_section p {
+    font-size: 0.9em;
+  }
+
+  footer p {
+    font-size: 0.9em;
+  }
+
+  .contact_section {
+    flex-direction: column; 
+    padding: 10px; 
+    align-items: center;
+  }
+
+  .contact_form {
+    margin: 0; 
+  }
+
+  .contact_form h3 {
+    font-size: 1.2em; 
+  }
+
+  .contact_form form {
+    max-width: 100%;
+  }
+
+  
+  .contact_form input,
+  .contact_form textarea {
+    padding: 8px; 
+  }
+
+
+  .tab_link {
+    font-size: 13px;
+    margin-top: 10px;
+    margin-right: 7px;
+  }
+
+  .map_container h2{
+    font-size: 1.8em;
+  } 
+
+  .content_info{
+    text-align: center;
+  }
+
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+ <div class="navbar" id="navbar">
+  <div class="menu_icon" onclick="toggleMenu()">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+  <div class="menu_links">
+    <a href="#section1">Home</a>
+    <a href="#section2">Special</a>
+    <a href="#section4">New</a>
+    <a href="#section5">About</a>
+    <a href="#"><i class="fa-solid fa-cart-shopping" style="size: 100px;"></i></a>
+
+  </div>
+</div>
+
+
+
+<main>
+  <section id="section1">
+    <div class="top_section">
+      <div id="top">
+        <h1>Special Offer!</h1>
+        <p>Discover Modern Culinary Delights</p>
+        <p>Experience the fusion of flavors in Hamburgers and Steaks!</p>
+      </div>
+      <div>
+        <a href="#" class="buy_now_btn">Buy Now</a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section id="section2">
+    <div class="Seasonal"> 
+     <div class="horizontal3"></div>
+     <h1>Seasonal Special</h1>
+     <div class="horizontal3"></div>
+   </div>
+   <h3>Enjoy The Warm and Fall Harvest Burger</h3>
+   <div class="container">
+    <ul>
+      <li class="one">
+        <img src="https://i.pinimg.com/564x/79/d0/5b/79d05b2c1235436c5f34400ed01fc66a.jpg" alt="Hamburger">
+        <p>Crispy Zen Zenith Burger</p>
+        <h6> $ 5.99</h6>
+
+      </li>
+      <li class="two"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_632/da6d3d114948071.604681b0d0a8a.jpg" alt="Hamburger">
+       <p>Flame Kiss Fiesta Burger</p>
+       <h6> $ 5.99</h6>
+     </li>
+     <li class="three"><img src="https://i.pinimg.com/564x/67/d6/ba/67d6bac0b8ecf23356f6a605a7a91f6a.jpg" alt="Hamburger">
+      <p>Magic Mushroom Delight</p>
+      <h6> $ 5.99</h6>
+    </li>
+    <li class="four"><img src="https://i.pinimg.com/564x/76/9d/01/769d0181ce354b62c4e88f623b46a63a.jpg"  alt="Hamburger">
+      <p>Sizzling Symphony Burger</p>
+      <h6> $ 5.99</h6>
+    </li>
+    <li class="five"><img src="https://i.pinimg.com/474x/aa/fd/f5/aafdf5a4fcdf68a2c1896588bac67630.jpg" alt="Hamburger">
+      <p>Savory Extreme Slider</p>
+      <h6> $ 5.99</h6>
+    </li>
+    <li class="six"><img src="https://i.pinimg.com/564x/8a/ea/85/8aea85cff0a280ba4eb3c412a5d4c192.jpg" alt="Hamburger">
+      <p>Bold BBQ Bonanza Burger</p>
+      <h6> $ 5.99</h6>
+    </li>
+  </ul>
+</div>
+</section>
+
+
+
+<section id="section3">
+  <div class="statement">
+    <h3>Choose and Enjoy!</h3>
+    <div id="horizontal"></div>
+    <p>Experience a culinary journey like never before. Our modern and delightful creations are crafted to satisfy your taste buds. Indulge in the finest flavors and elevate your dining experience.</p>
+  </div>
+
+
+  <div class="options">
+    <div>
+      <i class="fa-solid fa-truck fa-beat fa-2xl" style="color: #323232;"> </i>
+      <h3>Fast Delivery</h3>
+      <div id="horizontal2"></div>
+      <p>Products or services are shipped or provided quickly, ensuring prompt and timely arrival to the customer.</p>
+    </div>
+    <div>
+      <i class="fa-solid fa-leaf fa-2xl" style="color: #323232;"></i>
+      <h3>Fresh Food</h3>
+      <div id="horizontal2"></div>
+      <p> food items are recently harvested, produced, or prepared, retaining their natural quality, taste, and nutritional value.</p>
+    </div>
+    <div>
+      <i class="fa-solid fa-utensils fa-2xl" style="color: #323232;"></i>
+      <h3>Experienced Chefs</h3>
+      <div id="horizontal2"></div>
+      <p>Culinary professionals with a significant amount of knowledge gained through years of working in the culinary industry.</p>
+    </div>
+    <div>
+      <i class="fa-solid fa-burger fa-2xl" style="color: #323232;"></i>
+      <h3>Variety of Burger</h3>
+      <div id="horizontal2"></div>
+      <p>Diverse selection of burger options, featuring different flavors, and styles to cater to various preferences and tastes.</p>
+    </div>
+  </section>
+
+
+
+  <section id="section4">
+    <div class="new"><h2>What's New</h2> 
+      <p>Indulge in a symphony of flavors with our culinary masterpiece</p>
+    </div>
+
+    <div class="food"> 
+
+     <div class="lists">
+      <h2>Classic Burger Joy</h2>
+      <p>Dive into the juicy goodness of perfectly seasoned patties...</p>
+      <img src="https://i.pinimg.com/564x/4a/65/e8/4a65e85f49aed30dbd4ca816b885a2b5.jpg" alt="Hamburger" width="300" height="300">
+      <h6 class="price">$4.99</h6>
+    </div>
+
+    <div class="lists">
+      <h2>Barbeque Burger Temptation</h2>
+      <p>Explore the tenderness and rich flavors of succulent steak...</p>
+      <img src="https://www.tasteofhome.com/wp-content/uploads/2018/01/exps28800_UG143377D12_18_1b_RMS.jpg" alt="Barbeque" width="300" height="300">
+      <h6 class="price">$5.99</h6>
+    </div>
+
+    <div class="lists">
+      <h2>Triple King Sensation</h2>
+      <p>Discover the sizzle and spice of this Filipino favorite...</p>
+      <img src="https://i.pinimg.com/736x/e3/f1/42/e3f14236a906b83a493a19b81afd6c5e.jpg" alt="Triple" width="300" height="300">
+      <h6 class="price">$4.99</h6>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="section5" class="about_section animate__animated animate__fadeInLeft">
+  <div class="about_content">
+    <h2>About Us</h2>
+    <p>Welcome to Modern Culinary Delights, where we bring you a delightful culinary experience with our modern and innovative creations. Our journey is filled with passion, creativity, and a commitment to providing the finest flavors for your enjoyment.</p>
+  </div>
+  <div class="about_image animate__animated animate__fadeInRight">
+    <img src="https://i.pinimg.com/736x/35/5b/75/355b75c46576cf50f58ca2d4899f60fd.jpg" alt="About Us Image">
+  </div>
+</section>
+
+
+
+<section class="section6" >
+  <h1>Our Branches</h1>
+  <div class="branch_horizontal"></div>
+  <div class="maps_link">
+    <a href="#" class="tab_link">Tanauan</a>
+    <a href="#" class="tab_link">Lipa</a>
+    <a href="#" class="tab_link">Calamba</a>
+    <a href="#" class="tab_link">Sto.Tomas</a>
+  </div>
+
+  <div class="map_container content1">
+    <div class="map_embed">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123832.38055112434!2d121.02645833878!3d14.091228457313328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd6f72ec612957%3A0xb38df4072fe465d6!2sTanauan%2C%20Batangas!5e0!3m2!1sen!2sph!4v1702025291187!5m2!1sen!2sph" width="100%" height="300" style="border:0;  border-radius: 7px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="content_info">
+      <h2>Tanauan City, Batangas</h2>
+      <h3> Modern Burgeria </h3>
+      <br/>
+      <p>Trapiche, Tanauan City, Batangas</p>
+      <p>0123-456-7891</p>
+    </div>
+  </div>
+
+  <div class="map_container content2">
+    <div class="map_embed">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3872.274130187433!2d121.14856707423782!3d13.942276486469748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd6cbfacee4277%3A0x7701612328363c4!2sRobinsons%20Lipa!5e0!3m2!1sen!2sph!4v1702026310905!5m2!1sen!2sph" width="100%" height="300" style="border:0;  border-radius: 7px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="content_info">
+      <h2>Lipa City, Batangas</h2>
+      <h3> Modern Burgeria </h3>
+      <br/>
+      <p>President Jose P. Laurel Hwy, Lipa, Batangas</p>
+      <p>1122-3434-563-9090</p>
+    </div>
+  </div>
+
+  <div class="map_container content3">
+    <div class="map_embed">
+
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3867.839320409773!2d121.150079488855!3d14.204184900000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd63000286fa21%3A0x18d0e2688547e2d8!2sSM%20City%20Calamba!5e0!3m2!1sen!2sph!4v1702027071873!5m2!1sen!2sph" width="100%" height="300" style="border:0;  border-radius: 7px;" 
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+
+    </iframe>
+  </div>
+  <div class="content_info">
+    <h2>Calamba City, Laguna</h2>
+    <h3> Modern Burgeria </h3>
+    <br/>
+    <p>National Road, Brgy Real Calamba City Triangle, 4027 Laguna</p>
+    <p>1422-3214-663-8888</p>
+  </div>
+</div>
+
+<div class="map_container content4">
+  <div class="map_embed">
+   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.513236597975!2d121.14556077113812!3d14.105887556098432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd650f7c73de4b%3A0x784250b120b02c35!2sSM%20City%20Sto.%20Tomas!5e0!3m2!1sen!2sph!4v1702027974900!5m2!1sen!2sph" width="100%" height="300" style="border:0; border-radius: 7px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+ </div>
+ <div class="content_info">
+  <h2>Sto. Tomas City, Batangas</h2>
+  <h3> Modern Burgeria </h3>
+  <br/>
+  <p>20 Pan-Philippine Hwy, San Roque, Santo Tomas, 4232 Batangas</p>
+  <p>3452-3534-663-8538</p>
+</div>
+</div>
+</section>
+
+
+<section class="contact_section">
+  <div class="contact_left"> 
+    <h2>Contact Us</h2>
+    <p>Have questions or feedback? Reach out to us!</p>
+    <div class="contact_info">
+      <p>Email: <a href="mailto:info@culinarydelights.com">info@culinarydelights.com</a></p>
+      <p>Phone: (123) 456-7890</p>
+    </div>
+  </div>
+  <div class="contact_form">
+    <h3>Send us a Message</h3>
+    <form action="#" method="post">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+
+<footer>
+  <div style="background-color: #00735D; color: #ffffff; padding: 20px; text-align: center;">
+    <p>&copy; 2023 Made with love <i class="fa-solid fa-heart" style="color: ffffff;"></i> By Lea. All rights reserved.</p>
+  </div>
+</footer>
+
+
+</main>
+
+<script>
+
+// menu bar
+function toggleMenu() {
+  const menuLinks = document.querySelector('.menu_links');
+  menuLinks.style.display = menuLinks.style.display === 'none' ? 'flex' : 'none';
+}
+
+// navbar closing
+const navbar = document.getElementById('navbar');
+let lastScrollTop = 0;
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+  if (scrollTop > lastScrollTop) {
+       
+        navbar.style.top = '-60px'; 
+      } else {
+       
+        navbar.style.top = '0';
+      }
+
+      lastScrollTop = scrollTop;
+    });
+
+
+// top show
+window.onload = function () {
+  const topSection = document.querySelector("#top");
+  topSection.classList.add("show");
+};
+
+
+// Scrolling
+function scrollToSection(sectionId) {
+  const section = document.querySelector(sectionId);
+  window.scroll({
+    behavior: 'smooth',
+    left: 0,
+    top: section.offsetTop
+  });
+}
+
+
+// season special fade
+document.addEventListener("DOMContentLoaded", function () {
+  const section2 = document.getElementById("section2");
+  const images = document.querySelectorAll(".container li img");
+
+  function checkScroll() {
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const section2Position = section2.offsetTop;
+
+    if (scrollPosition > section2Position) {
+      images.forEach((image) => {
+        image.parentNode.classList.add("in_view");
+      });
+      window.removeEventListener("scroll", checkScroll);
+    }
+  }
+
+  window.addEventListener("scroll", checkScroll);
+  checkScroll(); 
+});
+
+
+
+// about image and the paragraph 
+document.addEventListener("DOMContentLoaded", function () {
+  const section5 = document.getElementById("section5");
+  const aboutImage = document.querySelector(".about_image img");
+
+  function checkScroll() {
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const section5Position = section5.offsetTop;
+
+    if (scrollPosition > section5Position) {
+      section5.classList.add("show");
+      aboutImage.parentNode.classList.add("in_view");
+      window.removeEventListener("scroll", checkScroll);
+    }
+  }
+
+  window.addEventListener("scroll", checkScroll);
+  checkScroll();
+});
+
+
+
+// change div for location branches
+document.addEventListener("DOMContentLoaded", function () {
+  const links = document.querySelectorAll('.tab_link');
+  const contents = document.querySelectorAll('.map_container');
+
+  links.forEach(function (link, index) {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+
+      contents.forEach(function (content) {
+        content.style.display = 'none';
+      });
+ 
+      links.forEach(function (link) {
+        link.classList.remove('selected_tab_link');
+      });
+
+      contents[index].style.display = 'flex';
+      
+      link.classList.add('selected_tab_link');
+    });
+  });
+
+ 
+  document.querySelector('.section6').style.display = 'flex';
+
+
+  links[0].click(); 
+});
+
+
+
+
+// Close menu links when tap outside
+document.addEventListener('click', function (event) {
+  const menuLinks = document.querySelector('.menu_links');
+  const menuIcon = document.querySelector('.menu_icon');
+
+  if (!menuLinks.contains(event.target) && !menuIcon.contains(event.target) && window.innerWidth <= 768) {
+    menuLinks.style.display = 'none';
+  }
+});
+
+function toggleMenu() {
+  const menuLinks = document.querySelector('.menu_links');
+  menuLinks.style.display = menuLinks.style.display === 'none' ? 'flex' : 'none';
+}
+
+
+</script>
+</body>
+
+</html>
